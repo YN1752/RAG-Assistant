@@ -1,0 +1,10 @@
+PyMuPDF==1.24.5
+gradio==4.44.0
+ibm-watsonx-ai==1.1.2
+langchain==0.2.11
+langchain-community==0.2.10
+langchain-ibm==0.1.11
+chromadb==0.4.24
+pydantic==2.9.1
+ipykernel
+python-dotenv
