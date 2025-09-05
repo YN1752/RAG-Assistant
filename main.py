@@ -67,10 +67,14 @@ class RAG_Pipeline():
     # Define my RAG pipeline
     def retriever_qa(self, file, query):
         
+        file_name = file.name.split('\\')[-1]
+        
         ## Check if new pdf file is given as input. Only then create a new vector database
-        if file.name != self.loaded_doc:
+        if file_name != self.loaded_doc:
 
-            self.loaded_doc = file.name
+            # print(f"Old file: {self.loaded_doc} New file: {file_name}")
+
+            self.loaded_doc = file_name
             
             ### Load the PDF Loader
             loader = PyMuPDFLoader(file)
@@ -102,6 +106,8 @@ class RAG_Pipeline():
 
         ## Generated output
         response = qa.invoke(query)["result"]
+
+        # print(self.vectordb._collection.get(ids=str(1)))
 
         return response
   
